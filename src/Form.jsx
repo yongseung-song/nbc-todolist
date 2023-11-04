@@ -6,7 +6,7 @@ function Form({ handleSubmitBtn }) {
       <div className="input__wrapper">
         <div>
           <label htmlFor="title">제목</label>
-          <input type="text" name="title" id="title" />
+          <input type="text" name="title" id="title" autoFocus />
         </div>
         <div>
           <label htmlFor="content">내용</label>

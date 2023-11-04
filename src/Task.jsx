@@ -1,4 +1,5 @@
 import React from "react";
+import dayjs from "dayjs";
 
 function Task({
   id,
@@ -13,7 +14,7 @@ function Task({
     <li key={id} className="card">
       <h2>{title}</h2>
       <p>{content}</p>
-      <p>{date}</p>
+      <span>{date}</span>
       <div className="button-container">
         <button
           className="button card__button card__button-finish"

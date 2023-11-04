@@ -53,11 +53,14 @@ body.done {
   border-bottom: 1px solid #0003;
   box-shadow: 0px 5px 8px #aaa3;
   padding: 16px 40px;
-  padding-bottom: 10px;
+  padding-bottom: 14px;
+  font-family: monospace;
 }
-
+.layout__header span {
+  display: inline-block;
+}
 .header__title {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -150,12 +153,39 @@ section {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  align-items: start;
+  padding: 0 12px;
+  box-sizing: border-box;
   /* border: 1px solid black; */
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0px 6px 10px #aaaa;
+}
+
+.card h2 {
+  margin-top: 18px;
+  font-size: 0.8rem;
+  color: #555;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.card p {
+  height: 80px;
+  font-weight: 500;
+  line-height: 1.6rem;
+}
+.card span {
+  display: block;
+  align-self: self-end;
+  margin-top: auto;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  color: #aaa;
+  visibility: hidden;
+}
+.card:hover span {
+  visibility: visible;
 }
 .button-container {
   position: absolute;

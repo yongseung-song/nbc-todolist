@@ -27,7 +27,8 @@ function TodoList() {
         [...prevTodoList[1]],
       ]);
     }
-
+    titleInput.value = "";
+    contentInput.value = "";
     console.log(todoList);
   };
 
@@ -70,7 +71,7 @@ function TodoList() {
               <Task
                 key={item?.id}
                 id={item?.id}
-                date={item?.date.format("DD/MM/YY HH:MM")}
+                date={dayjs().format("DD/MM/YY HH:MM")}
                 title={item?.title}
                 content={item?.content}
                 buttonText={`완료`}
