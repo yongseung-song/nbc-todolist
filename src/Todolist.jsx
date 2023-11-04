@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
+import dayjs from "dayjs";
 import Task from "Task";
 import Form from "Form";
 
-function Todolist() {
-  const [todoItem, setTodoItem] = useState({});
-  const [todoList, setTodoList] = useState([]);
-  // const [title, setTitle] = useState("");
-  // const [completedList, setCompletedList] = useState([]);
+function TodoList() {
+  const [todoList, setTodoList] = useState([[], []]);
 
   const handleSubmitBtn = (e) => {
     e.preventDefault();
@@ -18,35 +16,38 @@ function Todolist() {
     if (title && content) {
       const item = {
         id: Date.now(),
+        date: dayjs(),
         title: title,
         content: content,
         isDone: false,
       };
-      setTodoItem(item);
 
-      // setTodoList([todoItem, ...todoList]);
-      setTodoList((prevTodoList) => [item, ...prevTodoList]);
+      setTodoList((prevTodoList) => [
+        [item, ...prevTodoList[0]],
+        [...prevTodoList[1]],
+      ]);
     }
 
     console.log(todoList);
   };
 
   const handleChecked = (id) => {
-    const item = todoList.find((card) => card.id === id);
+    const allItemsList = [...todoList[0], ...todoList[1]];
+    const item = allItemsList.find((item) => item.id === id);
+
     item.isDone = !item.isDone;
-    // setCompletedList([
-    //   ...completedList,
-    //   ...todoList.filter((card) => card.isDone),
-    // ]);
+    filterTodoItems(allItemsList);
+  };
 
-    //가져온녀석의 isDone 정보를 바꾸고
-    //바꾼 정보를 바탕으로  다시 카드리스트 필터를 돌려서 안된놈만 냅두고 된놈은 빼버린다
-    // console.log(todoList);
-    // if(filtered.isDone) {
+  const filterTodoItems = (allItemsList) => {
+    const workingItems = [];
+    const doneItems = [];
+    allItemsList.forEach((item) => {
+      item.isDone ? doneItems.push(item) : workingItems.push(item);
+    });
 
-    // }
-    // setCompletedList([filtered, ...completedList]);
-    // console.log(filtered);
+    setTodoList([[...workingItems], [...doneItems]]);
+    console.log(todoList);
   };
 
   return (
@@ -57,12 +58,14 @@ function Todolist() {
         <h3 className="card-container__title">WORKING...</h3>
         <ul className="card-container">
           <div className="card-carousel">
-            {todoList.map((item) => (
+            {todoList[0].map((item) => (
               <Task
                 key={item?.id}
                 id={item?.id}
+                date={item?.date.format("DD/MM/YY HH:MM")}
                 title={item?.title}
                 content={item?.content}
+                buttonText={`완료`}
                 handleChecked={handleChecked}
               />
             ))}
@@ -73,11 +76,23 @@ function Todolist() {
       <section className=" done">
         <h3 className="card-container__title">DONE!</h3>
         <ul className="card-container">
-          <div className="card-carousel"></div>
+          <div className="card-carousel">
+            {todoList[1].map((item) => (
+              <Task
+                key={item?.id}
+                id={item?.id}
+                date={dayjs().format("DD/MM/YY HH:")} // 완료 시각
+                title={item?.title}
+                content={item?.content}
+                buttonText={`취소`}
+                handleChecked={handleChecked}
+              />
+            ))}
+          </div>
         </ul>
       </section>
     </>
   );
 }
 
-export default Todolist;
+export default TodoList;

@@ -1,5 +1,5 @@
 import React from "react";
-import Todolist from "Todolist";
+import TodoList from "TodoList";
 
 function Layout() {
   return (
@@ -9,7 +9,7 @@ function Layout() {
         <h1 className="header__title">To-do List</h1>
         {/* <p>송용승</p> */}
       </div>
-      <Todolist />
+      <TodoList />
     </div>
   );
 }
