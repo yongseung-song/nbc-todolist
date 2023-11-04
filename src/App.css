@@ -1,38 +1,167 @@
-.App {
-  text-align: center;
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css");
+
+*,
+body {
+  font-family: "Pretendard Variable", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* align-items: center; */
+  background: linear-gradient(
+      217deg,
+      rgba(255, 79, 79, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(32, 117, 255, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: content-box;
+}
+body.done {
+  background-image: url(https://em-content.zobj.net/source/apple/118/white-heavy-check-mark_2705.png),
+    linear-gradient(0deg, rgba(34, 117, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+}
+.layout {
+  position: relative;
+  min-width: 800px;
+  max-width: 1200px;
+  height: 700px;
+  box-sizing: content-box;
+  margin: 24px auto;
+  box-sizing: border-box;
+  background-color: #fff9;
+  border-radius: 12px;
+  box-shadow: 0px 10px 25px #555e;
 }
 
-.App-link {
-  color: #61dafb;
+.layout__header {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: white;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  border-bottom: 1px solid #0003;
+  box-shadow: 0px 5px 8px #aaa3;
+  padding: 16px 40px;
+  padding-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header__title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  /* margin-bottom: -5px; */
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #aaa3;
+  height: 70px;
+  padding: 0 48px;
+  margin-bottom: 12px;
+  /* margin: 0 24px; */
+  /* background-color: #eee; */
+  /* border: 0 1px 1px 1px black; */
+}
+.form label {
+  /* position: absolute; */
+  margin-right: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.form .input__wrapper {
+  flex-shrink: 0;
+  gap: 40px;
+}
+.form input {
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  min-width: 120px;
+  max-width: 300px;
+  font-size: 1rem;
+}
+.form input:focus {
+  outline: none;
+}
+.button {
+  padding: 6px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 8px;
+  background-color: #71f350;
+}
+.form__button {
+  padding: 12px;
+  min-width: 120px;
+  max-width: 160px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.card__button {
+  min-width: 50px;
+  max-width: 80px;
+  font-size: 1rem;
+}
+.input__wrapper {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+section {
+  margin: 24px;
+}
+
+.card-container {
+  width: 100%;
+  overflow: scroll;
+  margin: 16px 0;
+}
+.card-container__title {
+  text-align: start;
+  margin: 0 24px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+.card-carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 180px;
+  margin: 0 0 12px;
+  gap: 24px;
+}
+
+.card {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1px solid black; */
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 6px 10px #aaaa;
+}
+.button-container {
+  display: flex;
+  gap: 12px;
 }
