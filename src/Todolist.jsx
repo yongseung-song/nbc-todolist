@@ -50,6 +50,14 @@ function TodoList() {
     console.log(todoList);
   };
 
+  const handleDelete = (id) => {
+    const allItemsList = [...todoList[0], ...todoList[1]];
+    const deleteIndex = allItemsList.findIndex((item) => item.id === id);
+
+    allItemsList.splice(deleteIndex, 1);
+    filterTodoItems(allItemsList);
+  };
+
   return (
     <>
       <Form handleSubmitBtn={handleSubmitBtn} />
@@ -67,6 +75,7 @@ function TodoList() {
                 content={item?.content}
                 buttonText={`완료`}
                 handleChecked={handleChecked}
+                handleDelete={handleDelete}
               />
             ))}
           </div>
@@ -86,6 +95,7 @@ function TodoList() {
                 content={item?.content}
                 buttonText={`취소`}
                 handleChecked={handleChecked}
+                handleDelete={handleDelete}
               />
             ))}
           </div>
