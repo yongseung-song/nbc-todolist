@@ -16,7 +16,7 @@ function TodoList() {
     if (title && content) {
       const item = {
         id: Date.now(),
-        date: dayjs(),
+        date: dayjs(new Date()),
         title: title,
         content: content,
         isDone: false,
@@ -32,12 +32,18 @@ function TodoList() {
     console.log(todoList);
   };
 
-  const handleChecked = (id) => {
+  const onChangeHandler = (e, id) => {
     const allItemsList = [...todoList[0], ...todoList[1]];
-    const item = allItemsList.find((item) => item.id === id);
-
-    item.isDone = !item.isDone;
+    const target = e.currentTarget.getAttribute("id");
+    if (target === "checkBtn") {
+      const item = allItemsList.find((item) => item.id === id);
+      item.isDone = !item.isDone;
+    } else if (target === "deleteBtn") {
+      const deleteIndex = allItemsList.findIndex((item) => item.id === id);
+      allItemsList.splice(deleteIndex, 1);
+    }
     filterTodoItems(allItemsList);
+    console.log(e.currentTarget);
   };
 
   const filterTodoItems = (allItemsList) => {
@@ -51,32 +57,24 @@ function TodoList() {
     console.log(todoList);
   };
 
-  const handleDelete = (id) => {
-    const allItemsList = [...todoList[0], ...todoList[1]];
-    const deleteIndex = allItemsList.findIndex((item) => item.id === id);
-
-    allItemsList.splice(deleteIndex, 1);
-    filterTodoItems(allItemsList);
-  };
-
   return (
     <>
       <Form handleSubmitBtn={handleSubmitBtn} />
 
       <section className=" working">
-        <h3 className="card-container__title">WORKING...</h3>
+        <h3 className="card-container__title"> WORKING...</h3>
         <ul className="card-container">
           <div className="card-carousel">
             {todoList[0].map((item) => (
               <Task
                 key={item?.id}
                 id={item?.id}
-                date={dayjs().format("DD/MM/YY HH:MM")}
+                date={item?.date.format("DD/MM/YY hh:mm")}
+                // TODO 날짜 제대로 안나오는 이유 확인
                 title={item?.title}
                 content={item?.content}
                 buttonText={`완료`}
-                handleChecked={handleChecked}
-                handleDelete={handleDelete}
+                onChangeHandler={onChangeHandler}
               />
             ))}
           </div>
@@ -84,19 +82,18 @@ function TodoList() {
       </section>
 
       <section className=" done">
-        <h3 className="card-container__title">DONE!</h3>
+        <h3 className="card-container__title"> DONE!</h3>
         <ul className="card-container">
           <div className="card-carousel">
             {todoList[1].map((item) => (
               <Task
                 key={item?.id}
                 id={item?.id}
-                date={dayjs().format("DD/MM/YY HH:")} // 완료 시각
+                date={dayjs().format("DD/MM/YY hh:mm")} // 완료 시각
                 title={item?.title}
                 content={item?.content}
                 buttonText={`취소`}
-                handleChecked={handleChecked}
-                handleDelete={handleDelete}
+                onChangeHandler={onChangeHandler}
               />
             ))}
           </div>
