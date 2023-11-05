@@ -7,7 +7,7 @@ function TodoList() {
   const [todoList, setTodoList] = useState([[], []]);
 
   useEffect(() => {
-    if (todoList?.length === 0) {
+    if (localStorage.getItem("todos") === null) {
       return;
     }
     const todos = JSON.parse(localStorage.getItem("todos"));
@@ -29,7 +29,7 @@ function TodoList() {
     if (title && content) {
       const item = {
         id: Date.now(),
-        date: dayjs(new Date()),
+        date: dayjs().format("YY-MM-DD hh:mm"),
         title: title,
         content: content,
         isDone: false,
@@ -72,6 +72,11 @@ function TodoList() {
     });
 
     setTodoList([[...workingItems], [...doneItems]]);
+
+    localStorage.setItem(
+      "todos",
+      JSON.stringify([[...workingItems], [...doneItems]])
+    );
     console.log(todoList);
   };
 
@@ -86,7 +91,7 @@ function TodoList() {
               <Task
                 key={item?.id}
                 id={item?.id}
-                date={"33232"}
+                date={item?.date}
                 // TODO 날짜 제대로 안나오는 이유 확인
                 title={item?.title}
                 content={item?.content}
@@ -105,7 +110,7 @@ function TodoList() {
               <Task
                 key={item?.id}
                 id={item?.id}
-                date={"32132"} // 완료 시각
+                date={item?.date} // 완료 시각
                 title={item?.title}
                 content={item?.content}
                 buttonText={`취소`}
