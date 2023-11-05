@@ -26,7 +26,7 @@ function TodoList() {
         [item, ...prevTodoList[0]],
         [...prevTodoList[1]],
       ]);
-    }
+    } else return;
     titleInput.value = "";
     contentInput.value = "";
     console.log(todoList);
@@ -60,7 +60,6 @@ function TodoList() {
   return (
     <>
       <Form handleSubmitBtn={handleSubmitBtn} />
-
       <section className=" working">
         <h3 className="card-container__title"> WORKING...</h3>
         <ul className="card-container">
@@ -80,7 +79,6 @@ function TodoList() {
           </div>
         </ul>
       </section>
-
       <section className=" done">
         <h3 className="card-container__title"> DONE!</h3>
         <ul className="card-container">

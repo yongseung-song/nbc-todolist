@@ -34,7 +34,7 @@ body.done {
   max-width: 1200px;
   height: 700px;
   box-sizing: content-box;
-  margin: 24px auto;
+  margin: 12px auto 64px;
   box-sizing: border-box;
   background-color: #fff9;
   border-radius: 12px;
@@ -71,9 +71,8 @@ body.done {
   height: 60px;
   padding: 0 24px;
   margin-bottom: 12px;
-  /* margin: 0 24px; */
-  /* background-color: #eee; */
-  /* border: 0 1px 1px 1px black; */
+  box-shadow: 0px 5px 8px #aaa3;
+  border-bottom: 1px solid #0003;
 }
 .form label {
   /* position: absolute; */
@@ -126,8 +125,11 @@ body.done {
   font-size: 1rem;
   letter-spacing: 2px;
   font-weight: 700;
-  background-color: rgba(0, 0, 0, 0.728);
   color: white;
+  background-color: #0005;
+}
+.form__button:hover {
+  background-color: #000a;
 }
 
 section {
@@ -159,8 +161,7 @@ section {
 .card {
   position: relative;
   width: 180px;
-  height: 180px;
-
+  /* height: 180px; */
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -187,10 +188,10 @@ section {
 }
 .card p {
   font-weight: 650;
-  /* height: fit-content; */
   line-height: 1.5rem;
   word-break: break-all;
   overflow: scroll;
+  margin-bottom: 8px;
 }
 .card span {
   display: block;
@@ -222,28 +223,57 @@ section {
   box-sizing: border-box;
   /* border: 2px solid #eee; */
   background-color: #fff0;
-  /* transition: 0.2s all step-end; */
 }
 .card:hover .card__button {
   opacity: 100%;
 }
 .card__button-finish {
   /* border: 2px solid #eeea; */
-  background-color: #fff0;
   box-shadow: 0px 2px 4px #aaaa;
 }
 .card__button-finish:hover {
   background-color: #00b600;
 }
 .card__button-erase {
+  position: relative;
   width: 12px;
   height: 12px;
   box-shadow: 0px 2px 4px #aaaa;
 }
+
+.card__button-erase::before {
+  content: "";
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid black;
+  transform: translate(-1.2px, -0.6px) rotateZ(45deg);
+}
+.card__button-erase::after {
+  content: "";
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid black;
+  transform: translate(4.55px, -0.6px) rotateZ(135deg);
+}
 .card__button-erase:hover {
-  background-image: url("https://www.svgrepo.com/show/493964/delete-1.svg");
+  /* background-image: url("https://www.svgrepo.com/show/493964/delete-1.svg");
   background-size: 22px;
-  background-position: center -4.5px;
+  background-position: center -4.5px; */
   background-color: #fa3c3c;
   box-shadow: 0px 2px 4px #aaaa;
+}
+
+.card__button-erase:hover::before,
+.card__button-erase:hover::after {
+  visibility: visible;
 }
