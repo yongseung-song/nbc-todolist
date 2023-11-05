@@ -14,11 +14,6 @@ function TodoList() {
     setTodoList(todos);
   }, []);
 
-  // useEffect(() => {
-  //   if (todoList?.length === 0) return;
-
-  // }, [todoList]);
-
   const handleSubmitBtn = (e) => {
     e.preventDefault();
     const titleInput = document.querySelector("#title");
