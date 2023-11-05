@@ -34,7 +34,7 @@ body.done {
   max-width: 1200px;
   height: 700px;
   box-sizing: content-box;
-  margin: 24px auto;
+  margin: 24px auto 120px;
   box-sizing: border-box;
   background-color: #fff9;
   border-radius: 12px;
