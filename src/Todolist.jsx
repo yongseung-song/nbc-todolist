@@ -6,6 +6,19 @@ import Form from "Form";
 function TodoList() {
   const [todoList, setTodoList] = useState([[], []]);
 
+  useEffect(() => {
+    if (todoList?.length === 0) {
+      return;
+    }
+    const todos = JSON.parse(localStorage.getItem("todos"));
+    setTodoList(todos);
+  }, []);
+
+  // useEffect(() => {
+  //   if (todoList?.length === 0) return;
+
+  // }, [todoList]);
+
   const handleSubmitBtn = (e) => {
     e.preventDefault();
     const titleInput = document.querySelector("#title");
@@ -26,10 +39,15 @@ function TodoList() {
         [item, ...prevTodoList[0]],
         [...prevTodoList[1]],
       ]);
+      localStorage.setItem(
+        "todos",
+        JSON.stringify([[item, ...todoList[0]], [...todoList[1]]])
+      );
+      console.log(todoList);
     } else return;
     titleInput.value = "";
     contentInput.value = "";
-    console.log(todoList);
+    // console.log(todoList);
   };
 
   const onChangeHandler = (e, id) => {
@@ -68,7 +86,7 @@ function TodoList() {
               <Task
                 key={item?.id}
                 id={item?.id}
-                date={item?.date.format("DD/MM/YY hh:mm")}
+                date={"33232"}
                 // TODO 날짜 제대로 안나오는 이유 확인
                 title={item?.title}
                 content={item?.content}
@@ -87,7 +105,7 @@ function TodoList() {
               <Task
                 key={item?.id}
                 id={item?.id}
-                date={dayjs().format("DD/MM/YY hh:mm")} // 완료 시각
+                date={"32132"} // 완료 시각
                 title={item?.title}
                 content={item?.content}
                 buttonText={`취소`}
