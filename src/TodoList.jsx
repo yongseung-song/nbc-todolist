@@ -100,7 +100,7 @@ function TodoList({ todoList, setTodoList }) {
                 <Task
                   key={item?.id}
                   id={item?.id}
-                  date={item?.date} // 완료 시각
+                  date={`Done on ${dayjs().format("YY-MM-DD hh:mm")}`} // 완료 시각
                   title={item?.title}
                   content={item?.content}
                   buttonText={`취소`}
