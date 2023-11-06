@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import "App.css";
 import TodoList from "TodoList";
 import Footer from "Footer";
 
 function Layout() {
-  console.log(`from Layout : ${localStorage.getItem("todos")}`);
+  const [todoList, setTodoList] = useState([[], []]);
   return (
     <div className="layout">
       <div className="layout__header">
@@ -14,8 +15,8 @@ function Layout() {
         </h1>
         {/* <p>송용승</p> */}
       </div>
-      <TodoList />
-      <Footer />
+      <TodoList todoList={todoList} setTodoList={setTodoList} />
+      <Footer todoList={todoList} setTodoList={setTodoList} />
     </div>
   );
 }

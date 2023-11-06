@@ -3,9 +3,7 @@ import dayjs from "dayjs";
 import Task from "Task";
 import Form from "Form";
 
-function TodoList() {
-  const [todoList, setTodoList] = useState([[], []]);
-
+function TodoList({ todoList, setTodoList }) {
   useEffect(() => {
     if (localStorage.getItem("todos") === null) {
       return;
@@ -38,11 +36,9 @@ function TodoList() {
         "todos",
         JSON.stringify([[item, ...todoList[0]], [...todoList[1]]])
       );
-      console.log(todoList);
     } else return;
     titleInput.value = "";
     contentInput.value = "";
-    // console.log(todoList);
   };
 
   const onChangeHandler = (e, id) => {
@@ -56,7 +52,6 @@ function TodoList() {
       allItemsList.splice(deleteIndex, 1);
     }
     filterTodoItems(allItemsList);
-    console.log(e.currentTarget);
   };
 
   const filterTodoItems = (allItemsList) => {
@@ -72,7 +67,6 @@ function TodoList() {
       "todos",
       JSON.stringify([[...workingItems], [...doneItems]])
     );
-    console.log(todoList);
   };
 
   return (
