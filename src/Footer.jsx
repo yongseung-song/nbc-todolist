@@ -1,10 +1,11 @@
 import React from "react";
 import Statistics from "Statistics";
 
-function Footer() {
+function Footer({ todoList, message }) {
   return (
     <div id="footer">
       <Statistics />
+      <p id="message">{message}</p>
       <p id="copyright">© 2023 Yongseung Song</p>
     </div>
   );

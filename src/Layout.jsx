@@ -5,6 +5,7 @@ import Footer from "Footer";
 
 function Layout() {
   const [todoList, setTodoList] = useState([[], []]);
+  const [message, setMessege] = useState("");
   return (
     <div className="layout">
       <div className="layout__header">
@@ -15,8 +16,13 @@ function Layout() {
         </h1>
         {/* <p>송용승</p> */}
       </div>
-      <TodoList todoList={todoList} setTodoList={setTodoList} />
-      <Footer todoList={todoList} setTodoList={setTodoList} />
+      <TodoList
+        todoList={todoList}
+        setTodoList={setTodoList}
+        message={message}
+        setMessage={setMessege}
+      />
+      <Footer todoList={todoList} setTodoList={setTodoList} message={message} />
     </div>
   );
 }

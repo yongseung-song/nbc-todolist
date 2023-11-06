@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import Task from "Task";
 import Form from "Form";
 
-function TodoList({ todoList, setTodoList }) {
+function TodoList({ todoList, setTodoList, message, setMessage }) {
   useEffect(() => {
     if (localStorage.getItem("todos") === null) {
       return;
@@ -37,6 +37,9 @@ function TodoList({ todoList, setTodoList }) {
         JSON.stringify([[item, ...todoList[0]], [...todoList[1]]])
       );
     } else return;
+    setMessage(
+      `🔥 'WORKING...' 그룹에 '${titleInput.value}'가 추가되었습니다.`
+    );
     titleInput.value = "";
     contentInput.value = "";
   };
@@ -44,11 +47,32 @@ function TodoList({ todoList, setTodoList }) {
   const onChangeHandler = (e, id) => {
     const allItemsList = [...todoList[0], ...todoList[1]];
     const target = e.currentTarget.getAttribute("id");
+    let group = "";
     if (target === "checkBtn") {
-      const item = allItemsList.find((item) => item.id === id);
+      const itemIndex = allItemsList.findIndex((item) => item.id === id);
+      const item = allItemsList[itemIndex];
+      if (itemIndex < todoList[0].length) {
+        setMessage(
+          `✅ 'WORKING...' 그룹의 '${item.title}' 항목이 완료되었습니다.`
+        );
+      } else {
+        setMessage(
+          `🔙 'DONE!' 그룹의 '${item.title}' 항목의 완료 처리가 취소되었습니다.`
+        );
+      }
       item.isDone = !item.isDone;
     } else if (target === "deleteBtn") {
       const deleteIndex = allItemsList.findIndex((item) => item.id === id);
+      const deleteItem = allItemsList[deleteIndex];
+      if (deleteIndex < todoList[0].length) {
+        setMessage(
+          `🗑️ 'WORKING...' 그룹의 '${deleteItem.title}' 항목이 삭제되었습니다.`
+        );
+      } else {
+        setMessage(
+          `🗑️ 'DONE!' 그룹의 '${deleteItem.title}' 항목이 삭제되었습니다.`
+        );
+      }
       allItemsList.splice(deleteIndex, 1);
     }
     filterTodoItems(allItemsList);

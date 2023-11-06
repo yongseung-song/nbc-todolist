@@ -314,7 +314,10 @@ section {
 }
 .stats div dd {
 }
-
+#message {
+  width: 670px;
+  text-align: start;
+}
 #copyright {
   padding: 12px 24px;
 }
