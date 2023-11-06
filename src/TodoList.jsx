@@ -78,43 +78,45 @@ function TodoList() {
   return (
     <>
       <Form handleSubmitBtn={handleSubmitBtn} />
-      <section className=" working">
-        <h3 className="card-container__title"> WORKING...</h3>
-        <ul className="card-container">
-          <div className="card-carousel">
-            {todoList[0].map((item) => (
-              <Task
-                key={item?.id}
-                id={item?.id}
-                date={item?.date}
-                // TODO 날짜 제대로 안나오는 이유 확인
-                title={item?.title}
-                content={item?.content}
-                buttonText={`완료`}
-                onChangeHandler={onChangeHandler}
-              />
-            ))}
-          </div>
-        </ul>
-      </section>
-      <section className=" done">
-        <h3 className="card-container__title"> DONE!</h3>
-        <ul className="card-container">
-          <div className="card-carousel">
-            {todoList[1].map((item) => (
-              <Task
-                key={item?.id}
-                id={item?.id}
-                date={item?.date} // 완료 시각
-                title={item?.title}
-                content={item?.content}
-                buttonText={`취소`}
-                onChangeHandler={onChangeHandler}
-              />
-            ))}
-          </div>
-        </ul>
-      </section>
+      <div id="todoList">
+        <section className=" working">
+          <h3 className="card-container__title"> WORKING...</h3>
+          <ul className="card-container">
+            <div className="card-carousel">
+              {todoList[0].map((item) => (
+                <Task
+                  key={item?.id}
+                  id={item?.id}
+                  date={item?.date}
+                  // TODO 날짜 제대로 안나오는 이유 확인
+                  title={item?.title}
+                  content={item?.content}
+                  buttonText={`완료`}
+                  onChangeHandler={onChangeHandler}
+                />
+              ))}
+            </div>
+          </ul>
+        </section>
+        <section className=" done">
+          <h3 className="card-container__title"> DONE!</h3>
+          <ul className="card-container">
+            <div className="card-carousel">
+              {todoList[1].map((item) => (
+                <Task
+                  key={item?.id}
+                  id={item?.id}
+                  date={item?.date} // 완료 시각
+                  title={item?.title}
+                  content={item?.content}
+                  buttonText={`취소`}
+                  onChangeHandler={onChangeHandler}
+                />
+              ))}
+            </div>
+          </ul>
+        </section>
+      </div>
     </>
   );
 }

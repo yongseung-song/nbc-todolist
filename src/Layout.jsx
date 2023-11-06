@@ -1,7 +1,9 @@
 import React from "react";
 import TodoList from "TodoList";
+import Footer from "Footer";
 
 function Layout() {
+  console.log(`from Layout : ${localStorage.getItem("todos")}`);
   return (
     <div className="layout">
       <div className="layout__header">
@@ -13,6 +15,7 @@ function Layout() {
         {/* <p>송용승</p> */}
       </div>
       <TodoList />
+      <Footer />
     </div>
   );
 }
