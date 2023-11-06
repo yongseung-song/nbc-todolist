@@ -7,13 +7,12 @@
 ### 컴포넌트 구조
 
 App: 최상위 컴포넌트입니다.
-⊢ Layout: 앱의 모든 내용을 담는 컴포넌트입니다.
-⊢ TodoList: to-do list에 아이템을 추가하는 컴포넌트와 to-do list의 내용을 담는 컴포넌트를 담는 컴포넌트입니다.
-∣ ⊢ Form: to-do list에 아이템을 추가하는 `<form>` 과 `<input>` 태그를 담는 컴포넌트입니다.
-∣ ⊢ Task: to-do list의 아이템을 `<li>` 태그 내부에 담는 컴포넌트로, 아이템의 타이틀과 내용을 포함합니다.
-∣
-⊢ Footer: 앱의 하단에 현재 to-do list의 상태와 최근 작업을 보여주는 message, copyright를 담는 컴포넌트입니다.
-⊢ Statistics: to-do list의 진행중 항목, 완료된 항목, 전체 항목의 수를 보여주는 컴포넌트입니다.
+Layout: 앱의 모든 내용을 담는 컴포넌트입니다.
+TodoList: to-do list에 아이템을 추가하는 컴포넌트와 to-do list의 내용을 담는 컴포넌트를 담는 컴포넌트입니다.
+Form: to-do list에 아이템을 추가하는 `<form>` 과 `<input>` 태그를 담는 컴포넌트입니다.
+Task: to-do list의 아이템을 `<li>` 태그 내부에 담는 컴포넌트로, 아이템의 타이틀과 내용을 포함합니다.
+Footer: 앱의 하단에 현재 to-do list의 상태와 최근 작업을 보여주는 message, copyright를 담는 컴포넌트입니다.
+Statistics: to-do list의 진행중 항목, 완료된 항목, 전체 항목의 수를 보여주는 컴포넌트입니다.
 
 ## 사용법
 
