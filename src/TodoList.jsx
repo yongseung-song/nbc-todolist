@@ -38,7 +38,7 @@ function TodoList({ todoList, setTodoList, message, setMessage }) {
       );
     } else return;
     setMessage(
-      `🔥 'WORKING...' 그룹에 '${titleInput.value}'가 추가되었습니다.`
+      `🔥 'WORKING ON...' 그룹에 '${titleInput.value}'가 추가되었습니다.`
     );
     titleInput.value = "";
     contentInput.value = "";
@@ -53,7 +53,7 @@ function TodoList({ todoList, setTodoList, message, setMessage }) {
       const item = allItemsList[itemIndex];
       if (itemIndex < todoList[0].length) {
         setMessage(
-          `✅ 'WORKING...' 그룹의 '${item.title}' 항목이 완료되었습니다.`
+          `✅ 'WORKING ON...' 그룹의 '${item.title}' 항목이 완료되었습니다.`
         );
       } else {
         setMessage(
@@ -66,7 +66,7 @@ function TodoList({ todoList, setTodoList, message, setMessage }) {
       const deleteItem = allItemsList[deleteIndex];
       if (deleteIndex < todoList[0].length) {
         setMessage(
-          `🗑️ 'WORKING...' 그룹의 '${deleteItem.title}' 항목이 삭제되었습니다.`
+          `🗑️ 'WORKING ON...' 그룹의 '${deleteItem.title}' 항목이 삭제되었습니다.`
         );
       } else {
         setMessage(
@@ -98,7 +98,7 @@ function TodoList({ todoList, setTodoList, message, setMessage }) {
       <Form handleSubmitBtn={handleSubmitBtn} />
       <div id="todoList">
         <section className=" working">
-          <h3 className="card-container__title"> WORKING...</h3>
+          <h3 className="card-container__title"> WORKING ON...</h3>
           <ul className="card-container">
             <div className="card-carousel">
               {todoList[0].map((item) => (

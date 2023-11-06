@@ -82,14 +82,13 @@ body.done {
   border-bottom: 1px solid #0003;
 }
 .form label {
-  /* position: absolute; */
   margin-right: 12px;
   font-size: 1rem;
   font-weight: 700;
 }
 .form .input__wrapper {
   display: flex;
-  flex-shrink: 0;
+  flex-shrink: 1;
   justify-content: center;
   align-items: center;
   gap: 58px;
@@ -109,7 +108,7 @@ body.done {
   outline: none;
 }
 .form input#content {
-  width: 440px;
+  width: 420px;
   min-width: 240px;
 }
 .form input#title {
@@ -133,6 +132,7 @@ body.done {
   letter-spacing: 2px;
   font-weight: 700;
   color: white;
+  margin-left: 24px;
   background-color: #0005;
 }
 .form__button:hover {
@@ -326,8 +326,14 @@ section {
 .stats div dd {
 }
 #message {
-  width: 670px;
+  flex-shrink: 1;
+  margin-right: auto;
+  padding-left: 10px;
   text-align: start;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow: hidden;
 }
 #copyright {
   padding: 12px 24px;
