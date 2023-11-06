@@ -2,6 +2,8 @@ import React from "react";
 import Statistics from "Statistics";
 
 function Footer({ todoList, message }) {
+  const showMessage = (message) => {};
+
   return (
     <div id="footer">
       <Statistics />
