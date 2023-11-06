@@ -34,6 +34,7 @@ body.done {
   position: relative;
   min-width: 800px;
   max-width: 1200px;
+  width: 1200px;
   height: 700px;
   box-sizing: content-box;
   margin: auto;
