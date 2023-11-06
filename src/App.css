@@ -7,11 +7,9 @@ body {
     "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-body {
+#root {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
+  width: 100vw;
   background: linear-gradient(
       217deg,
       rgba(255, 79, 79, 0.8),
@@ -20,8 +18,12 @@ body {
     linear-gradient(127deg, rgba(32, 117, 255, 0.8), rgba(0, 255, 0, 0) 70.71%),
     linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
   height: 100vh;
-  overflow: hidden;
+  overflow: scroll;
+  scrollbar-width: none;
   box-sizing: content-box;
+}
+#root::-webkit-scrollbar {
+  display: none;
 }
 body.done {
   background-image: url(https://em-content.zobj.net/source/apple/118/white-heavy-check-mark_2705.png),
@@ -34,7 +36,7 @@ body.done {
   max-width: 1200px;
   height: 700px;
   box-sizing: content-box;
-  margin: 24px auto 120px;
+  margin: auto;
   box-sizing: border-box;
   background-color: #fff9;
   border-radius: 12px;
