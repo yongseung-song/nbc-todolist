@@ -32,14 +32,17 @@ function TodoList({ todoList, setTodoList, message, setMessage }) {
         [item, ...prevTodoList[0]],
         [...prevTodoList[1]],
       ]);
+
       localStorage.setItem(
         "todos",
         JSON.stringify([[item, ...todoList[0]], [...todoList[1]]])
       );
     } else return;
+
     setMessage(
       `🔥 'WORKING ON...' 그룹에 '${titleInput.value}'가 추가되었습니다.`
     );
+
     titleInput.value = "";
     contentInput.value = "";
   };
@@ -106,7 +109,6 @@ function TodoList({ todoList, setTodoList, message, setMessage }) {
                   key={item?.id}
                   id={item?.id}
                   date={item?.date}
-                  // TODO 날짜 제대로 안나오는 이유 확인
                   title={item?.title}
                   content={item?.content}
                   buttonText={`완료`}
