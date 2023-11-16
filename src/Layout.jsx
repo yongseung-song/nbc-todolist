@@ -7,7 +7,9 @@ function Layout({ themeState, setThemeState }) {
   const [message, setMessege] = useState("");
 
   // TODO themeState 정체 파악
-  const ThemeButtonHandler = () => {};
+  const ThemeButtonHandler = (e) => {
+    e.preventDefault();
+  };
   console.log(themeState);
   return (
     <div className="layout">
