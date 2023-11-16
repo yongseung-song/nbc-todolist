@@ -100,6 +100,8 @@ body.done {
   border-right: none;
   border-radius: none;
   padding: 4px;
+  ${"" /* TODO theme 적용하기 */}
+  color: white;
   font-size: 1rem;
   background-color: #fff0;
 }
