@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import "App.css";
 import TodoList from "TodoList";
 import Footer from "Footer";
 
-function Layout() {
+function Layout({ themeState, setThemeState }) {
   const [todoList, setTodoList] = useState([[], []]);
   const [message, setMessege] = useState("");
+
+  // TODO themeState 정체 파악
+  const ThemeButtonHandler = () => {};
+  console.log(themeState);
   return (
     <div className="layout">
       <div className="layout__header">
@@ -14,6 +17,7 @@ function Layout() {
           <span>►</span>
           {` users > yongseung > Desktop > dev > scc > React > To-do List`}
         </h1>
+        <button>{themeState.name}</button>
         {/* <p>송용승</p> */}
       </div>
       <TodoList
